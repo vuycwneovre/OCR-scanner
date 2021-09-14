@@ -1,14 +1,18 @@
+from typing import Text
 import pytesseract
 from PIL import Image 
 
 
-pytesseract.pytesseract.tesseract_cmd = '<C:/Archivos de programa/Tesseract-OCR/tesseract.exe>'
+pytesseract.pytesseract.tesseract_cmd = r'<C:\Users\admin\AppData\Local\Programs\Tesseract-OCR\tesseract.exe>'
 
-filename = 'a.png'
+img = Image.open('C:/Users/admin/Documents/github-upload/camera_scanner/test2.png')
 
-def ocr_core(filename):
-    text = pytesseract.image_to_string(Image.open(filename))
+def ocr_core(img):
+    text = pytesseract.image_to_string(img)
+    print(text)
     return text
 
+print(ocr_core(img))
 
-print(ocr_core(filename))
+def main():
+    print(ocr_core())
