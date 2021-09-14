@@ -1,2 +1,4 @@
-# camera_scanner
- using ocr
+# OCR scanner
+ 
+ 
+ OCR scanner using tesseract
