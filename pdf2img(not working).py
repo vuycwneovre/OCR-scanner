@@ -1,7 +1,8 @@
 from pdf2image import convert_from_path
-# import poppler, error
+# import poppler, error importing library, tried environmental variables->paths
 
-pdf = 'C:/Users/admin/Documents/Python-Scripts/OCR-scanner/uploads/test.pdf'
+
+pdf = 'C:/Users/admin/Documents/GitHub/OCR-scanner/uploads/test.pdf'
 pages = convert_from_path(pdf, 350)
 
 
@@ -10,4 +11,3 @@ for page in pages:
     image_name = "Page " + str(i) + ".jpg"
     page.save(image_name, "JPEG")
     i = i + 1
-
