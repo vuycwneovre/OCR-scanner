@@ -1,14 +1,12 @@
-# OCR scanner
+# OCR scanner using Tesseract and Open CV
  
  
- OCR scanner using tesseract
-
-
-
-
-
-
-
+ This scanner uses Open CV for the preprocessing of the image, then with pytesseract it obtains the text, printed to a txt in the results folder.
+ 
+ 
+ It provides also:
+    - IMG to PDF (using the pdf2image library and poppler)
+    - OCR for PDF
 
 
 
