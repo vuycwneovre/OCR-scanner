@@ -3,53 +3,53 @@ import numpy as np
 #from PIL import Image
 
 #image = Image.open('C:/Users/admin/Documents/Python-Scripts/OCR-scanner/uploads/test.png')
-image = cv2.imread('C:/Users/admin/Documents/Python-Scripts/OCR-scanner/uploads/test.png')
+img = cv2.imread('C:/Users/admin/Documents/Python-Scripts/OCR-scanner/uploads/test.png')
 
 # grey picture
-def get_grayscale(image):
-    return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+def get_grayscale(img):
+    return cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 # noise removal
-def remove_noise(image):
-    return cv2.medianBlur(image,5)
+def remove_noise(img):
+    return cv2.medianBlur(img,5)
 
 #thresholding
-def thresholding(image):
-    return cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
+def thresholding(img):
+    return cv2.threshold(img, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
 
 #dilation
-def dilate(image):
+def dilate(img):
     kernel = np.ones((5,5),np.uint8)
-    return cv2.dilate(image, kernel, iterations = 1)
+    return cv2.dilate(img, kernel, iterations = 1)
 
 #erosion
-def erode(image):
+def erode(img):
     kernel = np.ones((5,5),np.uint8)
-    return cv2.erode(image, kernel, iterations = 1)
+    return cv2.erode(img, kernel, iterations = 1)
 
 #opening - erosion followed by dilation
-def opening(image):
+def opening(img):
     kernel = np.ones((5,5),np.uint8)
-    return cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
+    return cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
 
 #canny edge detection
-def canny(image):
-    return cv2.Canny(image, 100, 200)
+def canny(img):
+    return cv2.Canny(img, 100, 200)
 
 #skew correction
-def deskew(image):
-    coords = np.column_stack(np.where(image > 0))
+def deskew(img):
+    coords = np.column_stack(np.where(img > 0))
     angle = cv2.minAreaRect(coords)[-1]
     if angle < -45:
         angle = -(90 + angle)
     else:
         angle = -angle
-    (h, w) = image.shape[:2]
+    (h, w) = img.shape[:2]
     center = (w // 2, h // 2)
     M = cv2.getRotationMatrix2D(center, angle, 1.0)
-    rotated = cv2.warpAffine(image, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
+    rotated = cv2.warpAffine(img, M, (w, h), flags=cv2.INTER_CUBIC, borderMode=cv2.BORDER_REPLICATE)
     return rotated
 
 #template matching
-def match_template(image, template):
-    return cv2.matchTemplate(image, template, cv2.TM_CCOEFF_NORMED)
+def match_template(img, template):
+    return cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
