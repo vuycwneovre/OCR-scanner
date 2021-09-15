@@ -1,9 +1,8 @@
 import cv2
 import numpy as np
-#from PIL import Image
 
-#image = Image.open('C:/Users/admin/Documents/Python-Scripts/OCR-scanner/uploads/test.png')
-img = cv2.imread('C:/Users/admin/Documents/Python-Scripts/OCR-scanner/uploads/test.png')
+
+img = cv2.imread("uploads/test.png")
 
 # grey picture
 def get_grayscale(img):
