@@ -11,7 +11,7 @@
 
  To install Tesseract I used this repository at UB- Mannheim https://github.com/UB-Mannheim/tesseract/wiki
  
- To display an interface Streamlit(https://streamlit.io/) is used.
+ To display an interface Streamlit (https://streamlit.io/) is used.
 
  It is designed to work when tesseract-ocr folder is installed in the root of the project. 
 
