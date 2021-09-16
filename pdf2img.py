@@ -5,7 +5,6 @@ import os
 pdf = "uploads/test.pdf"
 pages = convert_from_path(pdf, 350)
 
-
 i = 1 
 for page in pages:
     image_name = "Page " + str(i) + ".jpg"
