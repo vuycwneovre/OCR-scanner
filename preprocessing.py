@@ -1,3 +1,4 @@
+"""
 import cv2
 import numpy as np
 
@@ -52,3 +53,4 @@ def deskew(img):
 #template matching
 def match_template(img, template):
     return cv2.matchTemplate(img, template, cv2.TM_CCOEFF_NORMED)
+"""
