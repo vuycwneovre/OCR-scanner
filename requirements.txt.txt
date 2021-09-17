@@ -1,0 +1,8 @@
+pytesseract
+poppler
+os
+pdf2image
+streamlit
+PIL
+main
+numpy
